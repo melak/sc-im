@@ -1579,16 +1579,16 @@ setitem :
     K_OVERLAP '=' NUMBER          {  if ($3 == 0) parse_str(user_conf_d, "overlap=0", TRUE);
                                      else         parse_str(user_conf_d, "overlap=1", TRUE); }
     |    K_OVERLAP                {               parse_str(user_conf_d, "overlap=1", TRUE); }
-    |    K_INPUT_BAR_BOTTOM '=' NUMBER   {  if ($3 == 0) parse_str(user_conf_d, "input_bar_bottom=0", TRUE);
-                                     else         parse_str(user_conf_d, "input_bar_bottom=1", TRUE);
-                                                  ui_mv_bottom_bar(); }
+    |    K_INPUT_BAR_BOTTOM '=' NUMBER   {  if ($3 == 0) { parse_str(user_conf_d, "input_bar_bottom=0", TRUE); }
+                                            else         { parse_str(user_conf_d, "input_bar_bottom=1", TRUE); }
+                                            ui_mv_bottom_bar(); }
     |    K_INPUT_BAR_BOTTOM       {               parse_str(user_conf_d, "input_bar_bottom=1", TRUE);
                                                   ui_mv_bottom_bar();
                                   }
 
-    |    K_INPUT_EDIT_MODE '=' NUMBER   {  if ($3 == 0) parse_str(user_conf_d, "input_edit_mode=0", TRUE);
-                                     else         parse_str(user_conf_d, "input_edit_mode=1", TRUE);
-                                                  ui_mv_bottom_bar(); }
+    |    K_INPUT_EDIT_MODE '=' NUMBER   {  if ($3 == 0) { parse_str(user_conf_d, "input_edit_mode=0", TRUE); }
+                                           else         { parse_str(user_conf_d, "input_edit_mode=1", TRUE); }
+                                           ui_mv_bottom_bar(); }
     |    K_INPUT_EDIT_MODE        {               parse_str(user_conf_d, "input_edit_mode=1", TRUE);
                                                   ui_mv_bottom_bar();
                                   }
