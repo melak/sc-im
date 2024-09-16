@@ -78,7 +78,6 @@ int open_ods(char * fname, char * encoding) {
     struct zip_file * zf;
     struct zip_stat sb_content;
 
-    char buf[100];
     int err;
     int len;
 

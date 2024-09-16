@@ -385,7 +385,6 @@ int open_xlsx(char * fname, char * encoding) {
     struct zip * za;
     struct zip_file * zf;
     struct zip_stat sb_sheet, sb_strings, sb_styles, sh_strings;
-    char buf[100];
     int err;
     int len;
 
