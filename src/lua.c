@@ -258,13 +258,13 @@ static int l_colrow2a(lua_State *L) {
  */
 
 static int l_colrow(lua_State *L) {
-    char buf[16];
+    char buf[64];
     char *val;
     int c, r;
     int ret, len;
     val = (char *) lua_tostring(L,1);
     sc_debug(" %s ", val);
-    ret = sscanf(val,"%49[a-za-Z]%d",buf,&r);
+    ret = sscanf(val,"%49[a-zA-Z]%d",buf,&r);
     sc_debug("scanf ret %d",ret);
     len=strlen(buf);
     c = (toupper((int)buf[0])) - 'A';
