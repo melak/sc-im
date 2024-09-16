@@ -42,10 +42,13 @@
  * \brief Header file for interp.c
  */
 
+typedef double (*fn1_t)(double arg);
+typedef double (*fn2_t)(double arg1, double arg2);
+
 struct ent * getent(struct sheet * sh, char * colstr, double rowdoub, int alloc);
 double eval(struct sheet * sh, struct ent * ent, struct enode * e, int rebuild_graph);
-double fn1_eval(double (* fn)(), double arg);
-double fn2_eval(double (* fn)(), double arg1, double arg2);
+double fn1_eval(fn1_t fn, double arg);
+double fn2_eval(fn2_t fn, double arg1, double arg2);
 char * seval(struct sheet * sh, struct ent * ent, struct enode * se, int rebuild_graph);
 void setiterations(int i);
 void EvalAll();
