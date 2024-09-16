@@ -92,7 +92,7 @@ ifeq ($(shell uname -s),OpenBSD)
   CFLAGS += -DNO_WORDEXP
 endif
 
-# dynamic linking (not available in BSD)
+# dynamic linking (not available/necessary in BSD)
 ifneq ($(shell uname -s | grep -o BSD),BSD)
   LDLIBS += -ldl
 endif
@@ -206,9 +206,6 @@ experres.h : gram.y eres.sed
 statres.h : gram.y sres.sed
 	sed -f sres.sed < $< > $@
 
-pvmtbl.o: sc.h pvmtbl.c
-	$(CC) ${CFLAGS} -c -DPSC pvmtbl.c
-
 docs:
 	doxygen Doxyfile
 
@@ -224,6 +221,6 @@ man_uninstall:
 clean:
 	rm -f $(OBJS)
 	rm -f experres.h statres.h y.tab.h
-	rm -f core gram.c y.output pxmalloc.c pvmtbl.c tags $(name)qref
+	rm -f core *.core gram.c y.output tags $(name)qref
 	rm -f qhelp.c $(name)
 	rm -rf ../docs/ 
